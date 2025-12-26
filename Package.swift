@@ -1,23 +1,25 @@
-// swift-tools-version: 5.9
+// swift-tools-version: 5.7
+// The swift-tools-version declares the minimum version of Swift required to build this package.
+
 import PackageDescription
 
 let package = Package(
-    name: "bidding-mobile-ios-sdk-release",
+    name: "bidding-mobile-ios-sdk",
     platforms: [
         .iOS(.v13)
     ],
     products: [
         .library(
-            name: "bidding_mobile_ios_sdk",
-            targets: ["bidding_mobile_ios_sdk"]
-        )
+            name: "bidding-mobile-ios-sdk",
+            targets: ["bidding-mobile-ios-sdk"]
+        ),
     ],
+    dependencies: [],
     targets: [
         .binaryTarget(
-            name: "bidding_mobile_ios_sdk",
+            name: "bidding-mobile-ios-sdk",
             url: "https://github.com/Mimeda/bidding-mobile-ios-sdk-release/releases/download/v1.0.0/bidding_mobile_ios_sdk.xcframework.zip",
-            checksum: "a6468f4578722bfed4d990f8fe8b6dfd286452fdbf69c6fcb39848fbc25b2762"
-        )
+            checksum: "71aa836c916b6510d0a12d26533db4bb6c7cfa138552edef2839abae578001b5"
+        ),
     ]
 )
-
