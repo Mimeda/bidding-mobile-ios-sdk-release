@@ -18,8 +18,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "bidding-mobile-ios-sdk",
-            url: "https://github.com/Mimeda/bidding-mobile-ios-sdk-release/releases/download/v1.0.1-beta.20-SNAPSHOT/bidding_mobile_ios_sdk.xcframework.zip",
-            checksum: "24c4ce2c2ef172d9ffce91430d51fbb648463c5d4077a4ecf92e54755ad47ad4"
+            url: "https://github.com/Mimeda/bidding-mobile-ios-sdk-release/releases/download/v1.0.1-beta.21-SNAPSHOT/bidding_mobile_ios_sdk.xcframework.zip",
+            checksum: "bbdd77345d2525a44a6681f06ac56fbcec84c02795dbbeb6dcafc4caa30e979a"
         ),
     ]
 )
