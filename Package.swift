@@ -12,14 +12,14 @@ let package = Package(
         .library(
             name: "bidding-mobile-ios-sdk",
             targets: ["bidding-mobile-ios-sdk"]
-        )
+        ),
     ],
     dependencies: [],
     targets: [
         .binaryTarget(
             name: "bidding-mobile-ios-sdk",
             url: "https://github.com/Mimeda/bidding-mobile-ios-sdk-release/releases/download/v1.0.0/bidding_mobile_ios_sdk.xcframework.zip",
-            checksum: "1a508d1adc02b511158ad49fb114d0f870d5604ad2ddd26bdc7cea8aee37739c"
-        )
+            checksum: "854065090913b591f470647f1077d250742556f760182a01ceef05045f8960e4"
+        ),
     ]
 )
