@@ -74,19 +74,147 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 ### 3. Event Tracking
 
 ```swift
-// Basit event
+import bidding_mobile_ios_sdk
+
+// Home / View - Ana sayfa görüntüleme
 MimedaSDK.shared.trackEvent(
     eventName: .home,
-    eventParameter: .view
+    eventParameter: .view,
+    params: EventParams()
 )
 
-// Parametreli event
+// Home / AddtoCart - Ana sayfadan sepete ekleme
+MimedaSDK.shared.trackEvent(
+    eventName: .home,
+    eventParameter: .addToCart,
+    params: EventParams(
+        lineItemIds: "item123",
+        productList: "SKU456:1:99.99"
+    )
+)
+
+// Home / AddtoFavorites - Ana sayfadan favorilere ekleme
+MimedaSDK.shared.trackEvent(
+    eventName: .home,
+    eventParameter: .addToFavorites,
+    params: EventParams(
+        lineItemIds: "item123",
+        productList: "SKU456:1:99.99"
+    )
+)
+
+// Listing / View - Ürün listesi görüntüleme
+MimedaSDK.shared.trackEvent(
+    eventName: .listing,
+    eventParameter: .view,
+    params: EventParams(
+        categoryId: "electronics",
+        totalRowCount: 50
+    )
+)
+
+// Listing / AddtoCart - Liste sayfasından sepete ekleme
+MimedaSDK.shared.trackEvent(
+    eventName: .listing,
+    eventParameter: .addToCart,
+    params: EventParams(
+        categoryId: "electronics",
+        lineItemIds: "item123",
+        productList: "SKU456:1:99.99"
+    )
+)
+
+// Listing / AddtoFavorites - Liste sayfasından favorilere ekleme
+MimedaSDK.shared.trackEvent(
+    eventName: .listing,
+    eventParameter: .addToFavorites,
+    params: EventParams(
+        categoryId: "electronics",
+        lineItemIds: "item123",
+        productList: "SKU456:1:99.99"
+    )
+)
+
+// Search / View - Arama sonuçları görüntüleme
+MimedaSDK.shared.trackEvent(
+    eventName: .search,
+    eventParameter: .view,
+    params: EventParams(
+        keyword: "elektronik",
+        categoryId: "electronics"
+    )
+)
+
+// Search / AddtoCart - Arama sonuçlarından sepete ekleme
+MimedaSDK.shared.trackEvent(
+    eventName: .search,
+    eventParameter: .addToCart,
+    params: EventParams(
+        keyword: "elektronik",
+        lineItemIds: "item123",
+        productList: "SKU456:1:99.99"
+    )
+)
+
+// Search / AddtoFavorites - Arama sonuçlarından favorilere ekleme
+MimedaSDK.shared.trackEvent(
+    eventName: .search,
+    eventParameter: .addToFavorites,
+    params: EventParams(
+        keyword: "elektronik",
+        lineItemIds: "item123",
+        productList: "SKU456:1:99.99"
+    )
+)
+
+// Product Detail Page / View - Ürün detay sayfası görüntüleme
+MimedaSDK.shared.trackEvent(
+    eventName: .pdp,
+    eventParameter: .view,
+    params: EventParams(
+        lineItemIds: "item123",
+        productList: "SKU456:1:99.99"
+    )
+)
+
+// Product Detail Page / AddtoCart - Ürün detay sayfasından sepete ekleme
 MimedaSDK.shared.trackEvent(
     eventName: .pdp,
     eventParameter: .addToCart,
     params: EventParams(
         lineItemIds: "item123",
-        productList: "08060192:1:10.50"  // format: SKU:adet:fiyat
+        productList: "SKU456:1:99.99"
+    )
+)
+
+// Product Detail Page / AddtoFavorites - Ürün detay sayfasından favorilere ekleme
+MimedaSDK.shared.trackEvent(
+    eventName: .pdp,
+    eventParameter: .addToFavorites,
+    params: EventParams(
+        lineItemIds: "item123",
+        productList: "SKU456:1:99.99"
+    )
+)
+
+// Cart / View - Sepet sayfası görüntüleme
+MimedaSDK.shared.trackEvent(
+    eventName: .cart,
+    eventParameter: .view,
+    params: EventParams(
+        lineItemIds: "item123,item456",
+        productList: "SKU456:1:99.99,SKU789:2:149.99"
+    )
+)
+
+// Purchase / Success - Satın alma işlemi başarılı
+MimedaSDK.shared.trackEvent(
+    eventName: .purchase,
+    eventParameter: .success,
+    params: EventParams(
+        transactionId: "txn789",
+        lineItemIds: "item123,item456",
+        productList: "SKU456:1:99.99,SKU789:2:149.99"
     )
 )
 ```
@@ -128,21 +256,29 @@ Tüm parametreler opsiyoneldir.
 ### 4. Performance Tracking
 
 ```swift
-// Impression
+import bidding_mobile_ios_sdk
+
+// Impression (Görüntülenme)
 MimedaSDK.shared.trackPerformanceImpression(
     params: PerformanceEventParams(
         lineItemId: "line123",
         creativeId: "creative456",
-        adUnit: "banner_top"
+        adUnit: "banner_top",
+        productSku: "SKU789",
+        payload: "custom_data",
+        keyword: "electronics",
+        userId: "user123"
     )
 )
 
-// Click
+// Click (Tıklama)
 MimedaSDK.shared.trackPerformanceClick(
     params: PerformanceEventParams(
         lineItemId: "line123",
         creativeId: "creative456",
-        adUnit: "banner_top"
+        adUnit: "banner_top",
+        productSku: "SKU789",
+        payload: "custom_data"
     )
 )
 ```
